@@ -1,9 +1,10 @@
 {
-    "StartUp": {
-        "post_wait_freezes": 300,
-        "next": [
-        ],
-        "interrupt": [
-        ]
-    }
+  "StartUp": {
+    "post_wait_freezes": 300,
+    "next": "StartZZZ"
+  },
+  "StartZZZ": {
+    "action": "StartApp",
+    "package": "com.miHoYo.Nap/com.mihoyo.combosdk.ComboSDKActivity"
+  }
 }

@@ -443,6 +443,7 @@ enc_temp_folder/*
 deps
 build
 install
+MaaDebugger
 
 # Tools
 tools/ImageCropper/**/*.png

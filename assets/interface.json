@@ -9,14 +9,14 @@
         {
             "name": "官服",
             "path": [
-                "{PROJECT_DIR}/resource"
+                "{PROJECT_DIR}/resource/base"
             ]
         },
         {
             "name": "云·官服",
             "path": [
-                "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/resource_cloud"
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/cloud"
             ]
         }
     ],
@@ -26,6 +26,5 @@
             "entry": "StartUp"
                 }
             ]
-        }
-    }
+
 }

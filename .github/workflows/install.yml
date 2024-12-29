@@ -106,7 +106,7 @@ jobs:
       # 添加步骤以从您的仓库下载 logo.ico
       - name: Download logo.ico from repository
         run: |
-          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
+          Invoke-WebRequest -Uri 'https://github.com/YlovexLN/MZA/raw/main/logo.ico' -OutFile 'logo.ico'
         shell: powershell
 
       - name: Install

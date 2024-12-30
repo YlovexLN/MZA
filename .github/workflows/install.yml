@@ -24,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        repository: 'YlovexLN/MFAWPF-MZA'
         with:
           fetch-depth: 0
       - id: set_tag
@@ -58,7 +57,6 @@ jobs:
     
     steps:
       - uses: actions/checkout@v4
-        repository: 'YlovexLN/MFAWPF-MZA'
         with:
           submodules: true
 

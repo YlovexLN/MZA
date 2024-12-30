@@ -9,7 +9,7 @@
 
 基于全新架构的 ZZZ 小助手。图像技术 + 模拟控制，解放双手！
 由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动！
-图标来源：[Pixiv](https://www.pixiv.net/artworks/125629080) 暂用，要求删除请在讨论区留言或者提交issues！
+<br>图标来源：[Pixiv](https://www.pixiv.net/artworks/125629080) 暂用，要求删除请在讨论区留言或者提交issues！
 
 ## 功能列表
 

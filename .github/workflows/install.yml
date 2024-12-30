@@ -97,24 +97,18 @@ jobs:
       - name: Download MFAWPF
         uses: robinraju/release-downloader@v1
         with:
-          repository: SweetSmellFox/MFAWPF
+          #epository: SweetSmellFox/MFAWPF # MFAWPF原仓库
+          repository: YlovexLN/MFAWPF-MZA  # 修改Logo后的仓库MFAWPF-MZ
           filename: MFAWPF*
           latest: true
           out-file-path: MFA
           extract: true
       
-      #下载logo.ico
-      - name: Download new logo.ico
-        run: |
-          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
-
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
           cp ./MFA/MFAWPF.exe ./install
-          # 复制logo.ico到install目录
-          cp logo.ico ./install/
           # url项示例  https://github.com/SweetSmellFox/MFAWPF
           jq --arg version_name "MZA" --arg url "https://github.com/YlovexLN/MZA" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
 
@@ -145,16 +139,10 @@ jobs:
           out-file-path: "deps"
           extract: true
 
-      #下载logo.ico
-      - name: Download new logo.ico
-        run: |
-          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
-
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
-          cp logo.ico ./install/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -182,17 +170,11 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
-
-      #下载logo.ico
-      - name: Download new logo.ico
-        run: |
-          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
       
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
-          cp logo.ico ./install/
 
       - uses: actions/upload-artifact@v4
         with:
@@ -222,16 +204,10 @@ jobs:
           out-file-path: "deps"
           extract: true
           
-      #下载logo.ico
-      - name: Download new logo.ico
-        run: |
-          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
-
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
-          cp logo.ico ./install/
 
       - uses: actions/upload-artifact@v4
         with:

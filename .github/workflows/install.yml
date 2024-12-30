@@ -158,7 +158,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        repository: 'YlovexLN/MFAWPF-MZA'
         with:
           submodules: true
 
@@ -191,7 +190,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        repository: 'YlovexLN/MFAWPF-MZA'
         with:
           submodules: true
 

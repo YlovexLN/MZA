@@ -112,9 +112,9 @@ jobs:
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
+          cp ./MFA/MFAWPF.exe ./install
           # 复制logo.ico到install目录
           cp logo.ico ./install/
-          cp ./MFA/MFAWPF.exe ./install
           # url项示例  https://github.com/SweetSmellFox/MFAWPF
           jq --arg version_name "MZA" --arg url "https://github.com/YlovexLN/MZA" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
 

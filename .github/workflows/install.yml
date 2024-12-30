@@ -102,20 +102,16 @@ jobs:
           latest: true
           out-file-path: MFA
           extract: true
-
-      # 添加步骤以从您的仓库下载 logo.ico
-      - name: Download logo.ico from repository
+      
+      - name: Download new logo.ico
         run: |
-          Invoke-WebRequest -Uri 'https://github.com/YlovexLN/MZA/raw/main/logo.ico' -OutFile 'logo.ico'
-        shell: powershell
+          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
 
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
           cp ./MFA/MFAWPF.exe ./install
-          # 使用下载的 logo.ico 替换程序图标
-          cp logo.ico ./install/MFAWPF.exe
           # url项示例  https://github.com/SweetSmellFox/MFAWPF
           jq --arg version_name "MZA" --arg url "https://github.com/YlovexLN/MZA" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
 
@@ -145,6 +141,10 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
+      
+      - name: Download new logo.ico
+        run: |
+          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
 
       - name: Install
         shell: bash
@@ -177,7 +177,11 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
-
+      
+      - name: Download new logo.ico
+        run: |
+          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
+      
       - name: Install
         shell: bash
         run: |
@@ -210,6 +214,10 @@ jobs:
           
           out-file-path: "deps"
           extract: true
+
+      - name: Download new logo.ico
+        run: |
+          curl -L -o logo.ico https://github.com/YlovexLN/MZA/raw/main/logo.ico
 
       - name: Install
         shell: bash

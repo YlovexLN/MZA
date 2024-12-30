@@ -1,0 +1,22 @@
+# .github/release-drafter.yml
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
+change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+change-title-escapes: '\|#'
+categories:
+  - title: 'New Features / 新功能'
+    labels:
+      - 'feature'
+  - title: 'Bug Fixes / 缺陷修复'
+    labels:
+      - 'bug'
+  - title: 'Documentation / 文档更新'
+    labels:
+      - 'documentation'
+  - title: 'Breaking Changes / 重大变更'
+    labels:
+      - 'breaking'
+template: |
+  ## What’s Changed / 变更日志
+
+  $CHANGES

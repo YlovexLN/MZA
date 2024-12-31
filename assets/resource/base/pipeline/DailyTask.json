@@ -1,0 +1,12 @@
+{
+    "DailyTask": {
+      "post_wait_freezes": 300,
+      "next": "JoinGame",
+      "interrupt": [
+        "GameLoading3",
+        "GameLoading2",
+        "GameLoading1",
+        "StartZZZ"
+      ]
+    }
+}    

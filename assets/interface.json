@@ -15,7 +15,6 @@
         {
             "name": "云·官服",
             "path": [
-                "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/cloud"
             ]
         }
@@ -24,7 +23,46 @@
         {
             "name": "启动游戏",
             "entry": "StartUp"
+        },
+        {
+            "name": "每日任务",
+            "entry": "DailyTask",
+            "option": [
+                "喝咖啡",
+                "刮卡",
+                "吃拉面",
+                "经营店铺"
+            ]
+        },
+        {
+            "name": "参数任务",
+            "entry": "MyTask3",
+            "option": [
+                "任务选项1"
+            ],
+            "pipeline_override": {}
+        }
+    ],
+    "option": {
+        "喝咖啡": {
+            "cases": [
+                {
+                    "name": "文本1",
+                    "pipeline_override": {
+                        "OcrTask": {
+                            "text": "文本1"
+                        }
+                    }
+                },
+                {
+                    "name": "文本2",
+                    "pipeline_override": {
+                        "OcrTask": {
+                            "text": "文本2"
+                        }
+                    }
                 }
             ]
-
+        }
+    }
 }

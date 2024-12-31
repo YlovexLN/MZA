@@ -38,7 +38,10 @@
             "name": "参数任务",
             "entry": "MyTask3",
             "option": [
-                "任务选项1"
+                "喝咖啡",
+                "刮卡",
+                "吃拉面",
+                "经营店铺"
             ],
             "pipeline_override": {}
         }

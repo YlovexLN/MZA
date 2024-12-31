@@ -35,9 +35,9 @@
     ],
     "post_wait_freezes": 1000
   },
-"JoinGame": {
+  "JoinGame": {
     "recognition": "TemplateMatch",
-    "template": "ScanQRCode.png", 
+    "template": "ScanQRCode.png",
     "post_wait_freezes": 1000,
     "action": "Click",
     "target": [

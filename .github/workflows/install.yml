@@ -170,7 +170,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-linux-${{ matrix.arch }}
+          name: MZA-linux-${{ matrix.arch }}
           path: "install"
 
   macos:
@@ -202,7 +202,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-macos-${{ matrix.arch }}
+          name: MZA-macos-${{ matrix.arch }}
           path: "install"
 
   android:
@@ -235,7 +235,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-android-${{ matrix.arch }}
+          name: MZA-android-${{ matrix.arch }}
           path: "install"
 
   release:

@@ -1,8 +1,12 @@
 {
   "StartUp": {
     "post_wait_freezes": 300,
-    "next": "JoinGame",
+    "next": [
+      "Home",
+      "JoinGame"
+    ],
     "interrupt": [
+      "BangBuQuan",
       "GameLoading3",
       "GameLoading2",
       "GameLoading1",
@@ -25,26 +29,59 @@
     "timeout": 30000
   },
   "GameLoading3": {
-    "recognition": "TemplateMatch",
-    "template": "GameLoading3.png",
-    "roi": [
-      421,
-      638,
-      437,
-      29
-    ],
-    "post_wait_freezes": 1000
+    "doc": "加载配置数据中",
+    "recognition": "OCR",
+    "expected": "加载配置数据中",
+    "timeout": 30000
   },
   "JoinGame": {
     "recognition": "TemplateMatch",
     "template": "ScanQRCode.png",
-    "post_wait_freezes": 1000,
+    "post_wait_freezes": 300,
     "action": "Click",
     "target": [
       563,
       571,
       141,
       36
+    ],
+    "next": [
+      "Home",
+      "JoinGame"
+    ],
+    "interrupt": [
+      "GameLoading3",
+      "GameLoading2",
+      "GameLoading1",
+      "StartZZZ"
     ]
+  },
+  "Home": {
+    "recognition": "TemplateMatch",
+    "template": "Home.png"
+  },
+  "BangBuQuan": {
+    "doc": "领取邦布券",
+    "recognition": "OCR",
+    "expected": "领取",
+    "post_wait_freezes": 600,
+    "action": "Click",
+    "target": true,
+    "next": "Yes"
+  },
+  "Yes": {
+    "pre_delay": 200,
+    "doc": "确认领取",
+    "recognition": "OCR",
+    "expected": "确认",
+    "action": "Click",
+    "target": true,
+    "next": "Back"
+  },
+  "Back": {
+    "recognition": "TemplateMatch",
+    "template": "Back.png",
+    "action": "Click",
+    "target": true
   }
 }

@@ -134,7 +134,7 @@ jobs:
           # 复制MZA.exe到install目录
           cp ./MFA/MZA.exe ./install
           # url项示例  https://github.com/SweetSmellFox/MFAWPF
-          jq --arg version_name "MZA" --arg url "https://github.com/YlovexLN/MZA" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/in[...]
+          jq --arg version_name "MZA" --arg url "https://github.com/YlovexLN/MZA" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
 
       - uses: actions/upload-artifact@v4
         with:
@@ -170,7 +170,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MZA-linux-${{ matrix.arch }}
+          name: MAAxxx-linux-${{ matrix.arch }}
           path: "install"
 
   macos:
@@ -194,7 +194,7 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
-      
+
       - name: Install
         shell: bash
         run: |
@@ -202,7 +202,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MZA-macos-${{ matrix.arch }}
+          name: MAAxxx-macos-${{ matrix.arch }}
           path: "install"
 
   android:
@@ -227,7 +227,7 @@ jobs:
           
           out-file-path: "deps"
           extract: true
-          
+
       - name: Install
         shell: bash
         run: |
@@ -235,7 +235,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MZA-android-${{ matrix.arch }}
+          name: MAAxxx-android-${{ matrix.arch }}
           path: "install"
 
   release:

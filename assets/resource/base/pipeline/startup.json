@@ -6,17 +6,24 @@
       "JoinGame"
     ],
     "interrupt": [
+      "Back",
       "BangBuQuan",
       "GameLoading3",
       "GameLoading2",
       "GameLoading1",
       "StartZZZ"
-    ]
+    ],
+    "on_error": "CloseGame",
+    "timeout": 63000
   },
   "StartZZZ": {
     "action": "StartApp",
     "package": "com.miHoYo.Nap/com.mihoyo.combosdk.ComboSDKActivity",
     "timeout": 30000
+  },
+  "CloseGame": {
+    "action": "StopApp",
+    "package": "com.miHoYo.Nap/com.mihoyo.combosdk.ComboSDKActivity"
   },
   "GameLoading1": {
     "recognition": "TemplateMatch",
@@ -35,6 +42,7 @@
     "timeout": 30000
   },
   "JoinGame": {
+    "doc": "检测到游戏加载完成出现扫码登陆",
     "recognition": "TemplateMatch",
     "template": "ScanQRCode.png",
     "post_wait_freezes": 300,
@@ -50,6 +58,8 @@
       "JoinGame"
     ],
     "interrupt": [
+      "Back",
+      "BangBuQuan",
       "GameLoading3",
       "GameLoading2",
       "GameLoading1",
@@ -62,8 +72,8 @@
   },
   "BangBuQuan": {
     "doc": "领取邦布券",
-    "recognition": "OCR",
-    "expected": "领取",
+    "recognition": "TemplateMatch",
+    "template": "BangBuQuanGet.png",
     "post_wait_freezes": 600,
     "action": "Click",
     "target": true,
@@ -75,8 +85,7 @@
     "recognition": "OCR",
     "expected": "确认",
     "action": "Click",
-    "target": true,
-    "next": "Back"
+    "target": true
   },
   "Back": {
     "recognition": "TemplateMatch",

@@ -1,12 +1,163 @@
 {
-    "DailyTask": {
-      "post_wait_freezes": 300,
-      "next": "JoinGame",
-      "interrupt": [
-        "GameLoading3",
-        "GameLoading2",
-        "GameLoading1",
-        "StartZZZ"
-      ]
-    }
-}    
+  "DailyTask": {
+    "post_wait_freezes": 300,
+    "next": [
+      "汀曼特调",
+      "浓缩咖啡",
+      "Card"
+    ],
+    "interrupt": [
+      "Yes",
+      "Go",
+      "BrocHure",
+      "GetHome"
+    ],
+    "on_error": "Back",
+    "timeout": 30000
+  },
+  "GetHome": {
+    "recognition": "TemplateMatch",
+    "template": "Home.png",
+    "action": "Click",
+    "post_wait_freezes": 300
+  },
+  "BrocHure": {
+    "doc": "快捷手册",
+    "recognition": "OCR",
+    "expected": "快捷手册",
+    "action": "Click",
+    "post_wait_freezes": 300
+  },
+  "Go": {
+    "doc": "前往",
+    "recognition": "OCR",
+    "expected": "前往",
+    "action": "Click"
+  },
+  "汀曼特调": {
+    "enabled": false,
+    "recognition": "OCR",
+    "expected": "汀曼特调",
+    "action": "Click",
+    "target": true,
+    "next": "BuyCoffee"
+  },
+  "浓缩咖啡": {
+    "enabled": false,
+    "recognition": "OCR",
+    "expected": "浓缩咖啡",
+    "action": "Click",
+    "target": true,
+    "next": "BuyCoffee"
+  },
+  "BuyCoffee": {
+    "doc": "点单",
+    "recognition": "OCR",
+    "expected": "点单",
+    "action": "Click",
+    "next": "Skip"
+  },
+  "Skip": {
+    "recognition": "OCR",
+    "expected": "跳过",
+    "action": "Click",
+    "next": "Yes"
+  },
+  "Card": {
+    "enabled": false,
+    "recognition": "OCR",
+    "expected": "刮刮卡",
+    "action": "Click",
+    "next": "Card2"
+  },
+  "Card2": {
+    "doc": "刮卡",
+    "recognition": "TemplateMatch",
+    "template": "Card.png",
+    "action": "MultiSwipe",
+    "swipes": [
+      {
+        "begin": [
+          490,
+          337,
+          0,
+          0
+        ],
+        "end": [
+          790,
+          337,
+          0,
+          0
+        ],
+        "duration": 500
+      },
+      {
+        "begin": [
+          490,
+          367,
+          0,
+          0
+        ],
+        "end": [
+          790,
+          367,
+          0,
+          0
+        ],
+        "duration": 500
+      },
+      {
+        "begin": [
+          490,
+          397,
+          0,
+          0
+        ],
+        "end": [
+          790,
+          397,
+          0,
+          0
+        ],
+        "duration": 500
+      },
+      {
+        "begin": [
+          490,
+          427,
+          0,
+          0
+        ],
+        "end": [
+          790,
+          427,
+          0,
+          0
+        ],
+        "duration": 500
+      },
+      {
+        "begin": [
+          490,
+          457,
+          0,
+          0
+        ],
+        "end": [
+          790,
+          457,
+          0,
+          0
+        ],
+        "duration": 500
+      }
+    ],
+    "next": [
+      "Home"
+    ],
+    "interrupt":[
+      "Yes",
+      "Back"
+    ]
+  }
+}

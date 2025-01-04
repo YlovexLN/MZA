@@ -29,8 +29,10 @@
             "entry": "DailyTask",
             "option": [
                 "喝咖啡",
-                "刮刮卡"
-            ]
+                "刮刮卡",
+                "吃拉面"
+            ],
+            "pipeline_override": {}
         }
     ],
     "option": {
@@ -39,29 +41,40 @@
                 {
                     "name": "汀曼特调",
                     "pipeline_override": {
-                        "DailyTask": {
-                            "next": "汀曼特调"
-                        },
-                        "汀曼特调":{
-                            "enabled": true
+                        "喝咖啡": {
+                            "next": [
+                                "刮刮卡"
+                            ],
+                            "interrupt": [
+                                "汀曼特调",
+                                "Yes",
+                                "Go",
+                                "BrocHure",
+                                "GetHome"
+                            ]
                         }
                     }
                 },
                 {
                     "name": "浓缩咖啡",
                     "pipeline_override": {
-                        "DailyTask": {
-                            "next": "浓缩咖啡"
-                        },
-                        "浓缩咖啡":{
-                            "enabled": true
+                        "喝咖啡": {
+                            "next": [
+                                "刮刮卡"
+                            ],
+                            "interrupt": [
+                                "浓缩咖啡",
+                                "Yes",
+                                "Go",
+                                "BrocHure",
+                                "GetHome"
+                            ]
                         }
                     }
                 },
                 {
                     "name": "无",
-                    "pipeline_override": {
-                    }
+                    "pipeline_override": {}
                 }
             ]
         },
@@ -70,11 +83,17 @@
                 {
                     "name": "Yes",
                     "pipeline_override": {
-                        "Card": {
-                            "enabled": true
-                        },
-                        "DailyTask": {
-                            "next": "Card"
+                        "刮刮卡": {
+                            "next": [
+                                "吃拉面"
+                            ],
+                            "interrupt": [
+                                "Card",
+                                "Yes",
+                                "Go",
+                                "BrocHure",
+                                "GetHome"
+                            ]
                         }
                     }
                 },
@@ -82,7 +101,127 @@
                     "name": "No",
                     "pipeline_override": {}
                 }
-        ]
+            ]
+        },
+        "吃拉面": {
+            "cases": [
+                {
+                    "name": "白碗草本汤面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "白碗草本汤面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "白碗南瓜甜汤面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "白碗南瓜甜汤面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "白碗炸叉烧面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "白碗炸叉烧面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "白碗红椒大肉面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "白碗红椒大肉面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "白碗青椒大肉面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "白碗青椒大肉面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "白碗青椒大肉面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "白碗青椒大肉面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "黑碗野菌面",
+                    "pipeline_override": {
+                        "吃拉面": {
+                            "next": [
+                                "黑碗野菌面"
+                            ],
+                            "interrupt": [
+                                "Ramen",
+                                "Map",
+                                "More",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "无",
+                    "pipeline_override": {}
+                }
+            ]
+        }
     }
-}
 }

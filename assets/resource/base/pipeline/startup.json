@@ -6,7 +6,6 @@
       "JoinGame"
     ],
     "interrupt": [
-      "Back",
       "BangBuQuan",
       "GameLoading3",
       "GameLoading2",
@@ -58,7 +57,6 @@
       "JoinGame"
     ],
     "interrupt": [
-      "Back",
       "BangBuQuan",
       "GameLoading3",
       "GameLoading2",
@@ -66,31 +64,17 @@
       "StartZZZ"
     ]
   },
-  "Home": {
-    "recognition": "TemplateMatch",
-    "template": "Home.png"
-  },
   "BangBuQuan": {
     "doc": "领取邦布券",
-    "recognition": "TemplateMatch",
-    "template": "BangBuQuanGet.png",
+    "recognition": "OCR",
+    "expected": "领取",
     "post_wait_freezes": 600,
     "action": "Click",
     "target": true,
-    "next": "Yes"
-  },
-  "Yes": {
-    "pre_delay": 200,
-    "doc": "确认领取",
-    "recognition": "OCR",
-    "expected": "确认",
-    "action": "Click",
-    "target": true
-  },
-  "Back": {
-    "recognition": "TemplateMatch",
-    "template": "Back.png",
-    "action": "Click",
-    "target": true
+    "index": -1,
+    "next": [
+      "Yes",
+      "Back"
+    ]
   }
 }

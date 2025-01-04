@@ -1,0 +1,80 @@
+{
+    "Home": {
+        "recognition": "TemplateMatch",
+        "template": "Home.png"
+    },
+    "Yes": {
+        "doc": "确认领取",
+        "recognition": "OCR",
+        "expected": "确认",
+        "action": "Click",
+        "target": true
+    },
+    "Yes2": {
+        "doc": "功能同上，文字识别时使用图像匹配",
+        "recognition": "TemplateMatch",
+        "template": "Yes2.png",
+        "action": "Click"
+    },
+    "No": {
+        "pre_delay": 200,
+        "doc": "取消",
+        "recognition": "OCR",
+        "expected": "取消",
+        "action": "Click",
+        "target": true
+    },
+    "Back": {
+        "recognition": "TemplateMatch",
+        "template": "Back.png",
+        "action": "Click",
+        "target": true
+    },
+    "GetHome": {
+        "recognition": "TemplateMatch",
+        "template": "Home.png",
+        "action": "Click",
+        "post_wait_freezes": 300
+      },
+      "BrocHure": {
+        "doc": "快捷手册",
+        "recognition": "OCR",
+        "expected": "快捷手册",
+        "action": "Click",
+        "post_wait_freezes": 300
+      },
+      "Go": {
+        "doc": "前往",
+        "recognition": "OCR",
+        "expected": "前往",
+        "action": "Click"
+      },
+      "Buy": {
+        "doc": "点单",
+        "recognition": "OCR",
+        "expected": "点单",
+        "action": "Click",
+        "next": [
+          "Skip",
+          "Yes"
+        ]
+      },
+      "Skip": {
+        "recognition": "OCR",
+        "expected": "跳过",
+        "action": "Click",
+        "next": "Yes"
+      },
+      "More": {
+        "recognition": "OCR",
+        "expected": "更多",
+        "action": "Click",
+        "target": true
+      },
+      "Enter": {
+        "recognition": "TemplateMatch",
+        "template": "Enter.png",
+        "action": "Click",
+        "target": true
+      }
+}

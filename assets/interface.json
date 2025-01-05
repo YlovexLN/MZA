@@ -30,6 +30,7 @@
             "option": [
                 "喝咖啡",
                 "刮刮卡",
+                "录像店",
                 "吃拉面"
             ],
             "pipeline_override": {}
@@ -59,9 +60,6 @@
                     "name": "浓缩咖啡",
                     "pipeline_override": {
                         "喝咖啡": {
-                            "next": [
-                                "刮刮卡"
-                            ],
                             "interrupt": [
                                 "浓缩咖啡",
                                 "Yes",
@@ -74,7 +72,13 @@
                 },
                 {
                     "name": "无",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "DailyTask": {
+                            "next": [
+                                "刮刮卡"
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -85,7 +89,7 @@
                     "pipeline_override": {
                         "刮刮卡": {
                             "next": [
-                                "吃拉面"
+                                "录像店"
                             ],
                             "interrupt": [
                                 "Card",
@@ -99,7 +103,43 @@
                 },
                 {
                     "name": "No",
-                    "pipeline_override": {}
+                    "pipeline_override": {
+                        "DailyTask": {
+                            "next": [
+                                "录像店"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "录像店": {
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "录像店": {
+                            "next": [
+                                "VideoStore"
+                            ],
+                            "interrupt": [
+                                "Yes",
+                                "Go",
+                                "BrocHure",
+                                "GetHome"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "DailyTask": {
+                            "next": [
+                                "吃拉面"
+                            ]
+                        }
+                    }
                 }
             ]
         },

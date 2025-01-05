@@ -4,6 +4,7 @@
     "next": [
       "喝咖啡",
       "刮刮卡",
+      "录像店",
       "吃拉面"
     ],
     "interrupt": [
@@ -13,9 +14,6 @@
     "timeout": 30000
   },
   "喝咖啡": {
-    "next": [
-      "刮刮卡"
-    ],
     "interrupt": [
       "汀曼特调",
       "浓缩咖啡",
@@ -27,7 +25,6 @@
     ]
   },
   "刮刮卡": {
-    "next": "吃拉面",
     "interrupt": [
       "Card",
       "Yes",
@@ -37,10 +34,18 @@
       "Home"
     ]
   },
+  "录像店": {
+    "interrupt": [
+      "Yes",
+      "Go",
+      "BrocHure",
+      "GetHome"
+    ]
+  },
   "吃拉面": {
     "next": [],
     "interrupt": [
-      "EnterRamen",
+      "Ramen",
       "Map",
       "Yes",
       "Yes2",
@@ -176,6 +181,142 @@
       "Back"
     ]
   },
+  "VideoStore": {
+    "next": [
+      "AddBook"
+    ],
+    "interrupt": [
+      "AddClerk",
+      "Add",
+      "Esc",
+      "Yes",
+      "Go",
+      "BrocHure",
+      "GetHome"
+    ]
+  },
+  "AddClerk": {
+    "doc": "添加店员",
+    "recognition": "OCR",
+    "expected": "赫帝",
+    "action": "Click",
+    "target": true,
+    "next": [
+      "Yes2",
+      "Yes"
+    ]
+  },
+  "AddBook": {
+    "doc": "添加书籍",
+    "next": [
+      "BookEnd"
+    ],
+    "interrupt": [
+      "PutBook",
+      "Add",
+      "Yes",
+      "Go",
+      "BrocHure",
+      "GetHome"
+    ]
+  },
+  "BookEnd": {
+    "recognition": "TemplateMatch",
+    "threshold": 1,
+    "template": [
+      "Add.png",
+      "客流.png"
+    ]
+  },
+  "PutBook": {
+    "doc": "识别左下角的书籍类型",
+    "post_wait_freezes": 300,
+    "recognition": "TemplateMatch",
+    "template": [
+      "冒险.png",
+      "幻想.png"
+    ],
+    "roi": [
+      248,
+      661,
+      400,
+      32
+    ],
+    "next": "PutBookEnd",
+    "interrupt": [
+      "SelectBookType",
+      "ScreenBook"
+    ]
+  },
+  "PutBookEnd": {
+    "recognition": "TemplateMatch",
+    "template": [
+      "冒险End.png",
+      "幻想End.png"
+    ],
+    "roi": [
+      244,
+      652,
+      415,
+      48
+    ],
+    "next": [
+      "下架"
+    ],
+    "interrupt": [
+      "Yes2"
+    ]
+  },
+  "ScreenBook": {
+    "doc": "点击上架筛选",
+    "recognition": "OCR",
+    "expected": "上架筛选",
+    "action": "Click",
+    "target": true,
+    "next": "SwipesScreenBook"
+  },
+  "SwipesScreenBook": {
+    "doc": "滑动屏幕",
+    "roi": [
+      746,
+      77,
+      481,
+      223
+    ],
+    "action": "Swipe",
+    "begin": [
+      923,
+      217,
+      0,
+      0
+    ],
+    "end": [
+      923,
+      92,
+      0,
+      0
+    ],
+    "duration": 1000
+  },
+  "SelectBookType": {
+    "doc": "选择对应的书籍类型",
+    "recognition": "TemplateMatch",
+    "template": [
+      "冒险.png"
+    ],
+    "roi": [
+      745,
+      75,
+      481,
+      228
+    ],
+    "action": "Click",
+    "target": true
+  },
+  "OpenStore": {
+    "recognition": "OCR",
+    "expected": "开始营业"
+  },
   "Ramen": {
     "doc": "吃拉面",
     "recognition": "OCR",
@@ -232,7 +373,7 @@
     "action": "Swipe",
     "begin": [
       185,
-      400,
+      430,
       95,
       97
     ],

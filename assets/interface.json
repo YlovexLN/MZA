@@ -25,15 +25,32 @@
             "entry": "StartUp"
         },
         {
-            "name": "日常",
-            "entry": "DailyTask",
+            "name": "日常-喝咖啡",
+            "entry": "喝咖啡",
             "option": [
-                "喝咖啡",
-                "刮刮卡",
-                "录像店",
+                "喝咖啡"
+            ]
+        },
+        {
+            "name": "日常-刮刮卡",
+            "entry": "刮刮卡",
+            "option": [
+                "刮刮卡"
+            ]
+        },
+        {
+            "name": "日常-录像店",
+            "entry": "录像店",
+            "option": [
+                "录像店"
+            ]
+        },
+        {
+            "name": "吃拉面",
+            "entry": "吃拉面",
+            "option": [
                 "吃拉面"
-            ],
-            "pipeline_override": {}
+            ]
         }
     ],
     "option": {
@@ -44,14 +61,7 @@
                     "pipeline_override": {
                         "喝咖啡": {
                             "next": [
-                                "刮刮卡"
-                            ],
-                            "interrupt": [
-                                "汀曼特调",
-                                "Yes",
-                                "Go",
-                                "BrocHure",
-                                "GetHome"
+                                "汀曼特调"
                             ]
                         }
                     }
@@ -60,25 +70,15 @@
                     "name": "浓缩咖啡",
                     "pipeline_override": {
                         "喝咖啡": {
-                            "interrupt": [
-                                "浓缩咖啡",
-                                "Yes",
-                                "Go",
-                                "BrocHure",
-                                "GetHome"
+                            "next": [
+                                "浓缩咖啡"
                             ]
                         }
                     }
                 },
                 {
-                    "name": "无",
-                    "pipeline_override": {
-                        "DailyTask": {
-                            "next": [
-                                "刮刮卡"
-                            ]
-                        }
-                    }
+                    "name": "No",
+                    "pipeline_override": {}
                 }
             ]
         },
@@ -89,27 +89,14 @@
                     "pipeline_override": {
                         "刮刮卡": {
                             "next": [
-                                "录像店"
-                            ],
-                            "interrupt": [
-                                "Card",
-                                "Yes",
-                                "Go",
-                                "BrocHure",
-                                "GetHome"
+                                "Card"
                             ]
                         }
                     }
                 },
                 {
                     "name": "No",
-                    "pipeline_override": {
-                        "DailyTask": {
-                            "next": [
-                                "录像店"
-                            ]
-                        }
-                    }
+                    "pipeline_override": {}
                 }
             ]
         },
@@ -121,30 +108,22 @@
                         "录像店": {
                             "next": [
                                 "VideoStore"
-                            ],
-                            "interrupt": [
-                                "Yes",
-                                "Go",
-                                "BrocHure",
-                                "GetHome"
                             ]
                         }
                     }
                 },
                 {
                     "name": "No",
-                    "pipeline_override": {
-                        "DailyTask": {
-                            "next": [
-                                "吃拉面"
-                            ]
-                        }
-                    }
+                    "pipeline_override": {}
                 }
             ]
         },
         "吃拉面": {
             "cases": [
+                {
+                    "name": "无",
+                    "pipeline_override": {}
+                },
                 {
                     "name": "白碗草本汤面",
                     "pipeline_override": {
@@ -256,10 +235,6 @@
                             ]
                         }
                     }
-                },
-                {
-                    "name": "无",
-                    "pipeline_override": {}
                 }
             ]
         }

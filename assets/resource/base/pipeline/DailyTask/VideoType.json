@@ -1,0 +1,119 @@
+{
+    "SelectVideoType_冒险": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "冒险.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            745,
+            75,
+            481,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_冒险"
+        ]
+    },
+    "SelectVideoTypeEnd_冒险": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "冒险End.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            242,
+            645,
+            418,
+            62
+        ],
+        "next": [
+            "下架"
+        ],
+        "interrupt": [
+            "Yes2"
+        ]
+    },
+    "SelectVideoType_动作": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "动作.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            745,
+            75,
+            481,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_动作"
+        ]
+    },
+    "SelectVideoTypeEnd_动作": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "动作End.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            242,
+            645,
+            418,
+            62
+        ],
+        "next": [
+            "下架"
+        ],
+        "interrupt": [
+            "Yes2"
+        ]
+    },
+    "SelectVideoType_惊悚": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "惊悚.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            745,
+            75,
+            481,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_惊悚"
+        ]
+    },
+    "SelectVideoTypeEnd_惊悚": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "惊悚End.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            242,
+            645,
+            418,
+            62
+        ],
+        "next": [
+            "下架"
+        ],
+        "interrupt": [
+            "Yes2"
+        ]
+    }
+}

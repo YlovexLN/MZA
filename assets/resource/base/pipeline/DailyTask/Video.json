@@ -1,0 +1,236 @@
+{
+    "BrocHureVideo": {
+        "recognition": "TemplateMatch",
+        "template": "BrocHureVideo.png",
+        "threshold": 0.9,
+        "next": [
+            "VideoStore",
+            "Go"
+        ],
+        "on_error": [
+            "StopBrocHure"
+        ],
+        "timeout": 1000
+    },
+    "NoBrocHureVideo": {
+        "doc": "识别任务是否已完成",
+        "next": "BrocHureVideo",
+        "on_error": [
+            "Completed",
+            "SwipeBrocHure"
+        ],
+        "timeout": 600
+    },
+    "VideoStore": {
+        "recognition": "OCR",
+        "expected": "开始营业",
+        "next": [
+            "VideoEnd"
+        ],
+        "interrupt": [
+            "BrocHureVideoEnter",
+            "Go",
+            "BrocHure"
+        ]
+    },
+    "AddVideo": {
+        "doc": "添加录像带",
+        "next": [
+            "VideoEnd"
+        ],
+        "interrupt": [
+            "BrocHureVideoEnter",
+            "Add",
+            "Yes",
+            "Go",
+            "BrocHure",
+            "GetHome"
+        ]
+    },
+    "BrocHureVideoEnter": {
+        "recognition": "DirectHit",
+        "next": [
+            "PutVideoEnd"
+        ],
+        "interrupt": [
+            "PutVideo1",
+            "PutVideo2",
+            "AddClerk",
+            "Add",
+            "Esc",
+            "Yes"
+        ]
+    },
+    "AddClerk": {
+        "doc": "添加店员",
+        "recognition": "OCR",
+        "expected": "赫帝",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "Yes2",
+            "Yes"
+        ]
+    },
+    "VideoEnd": {
+        "doc": "优化流程,上架录像带还可以继续点击上架筛选进行下一本书的选择",
+        "recognition": "TemplateMatch",
+        "threshold": 0.9,
+        "template": "BrocHureVideoEnter.png",
+        "next": [
+            "Home"
+        ],
+        "interrupt": [
+            "Yes",
+            "OpenStore",
+            "Back"
+        ]
+    },
+    "PutVideo1": {
+        "doc": "识别左下角的录像带类型,**随时添加PNG**",
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": [
+            "PutVideoEnd1.png"
+        ],
+        "threshold": 1,
+        "roi": [
+            244,
+            645,
+            415,
+            60
+        ],
+        "next": [
+            "PutVideoEnd1"
+        ],
+        "interrupt": [
+            "SelectVideoType_冒险",
+            "ScreenVideo",
+            "AddClerk",
+            "Add",
+            "Esc",
+            "Yes"
+        ],
+        "timeout": 1000
+    },
+    "PutVideo2": {
+        "doc": "识别左下角的录像带类型,**随时添加PNG**",
+        "post_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": [
+            "动作.png",
+            "惊悚.png"
+        ],
+        "roi": [
+            248,
+            661,
+            400,
+            32
+        ],
+        "next": [
+            "PutVideoEnd2"
+        ],
+        "interrupt": [
+            "SelectVideoType_惊悚",
+            "SelectVideoType_动作",
+            "ScreenVideo",
+            "AddClerk",
+            "Add",
+            "Esc",
+            "Yes"
+        ]
+    },
+    "PutVideoEnd": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "BrocHureVideoEnter.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            470,
+            62,
+            312,
+            115
+        ]
+    },
+    "PutVideoEnd1": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "PutVideoEnd5.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            242,
+            652,
+            427,
+            49
+        ],
+        "next": [
+            "Back"
+        ],
+        "interrupt": []
+    },
+    "PutVideoEnd2": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "PutVideoEnd1.png"
+        ],
+        "threshold": 0.8,
+        "roi": [
+            242,
+            652,
+            427,
+            49
+        ],
+        "next": [
+            "Back"
+        ],
+        "interrupt": []
+    },
+    "ScreenVideo": {
+        "doc": "点击上架筛选",
+        "recognition": "OCR",
+        "expected": "上架筛选",
+        "action": "Click",
+        "target": true,
+        "post_wait_freezes": 300,
+        "next": [
+            "SwipesScreenVideo"
+        ],
+        "interrupt": []
+    },
+    "SwipesScreenVideo": {
+        "doc": "滑动屏幕",
+        "roi": [
+            746,
+            77,
+            481,
+            223
+        ],
+        "action": "Swipe",
+        "begin": [
+            923,
+            217,
+            0,
+            0
+        ],
+        "end": [
+            923,
+            92,
+            0,
+            0
+        ],
+        "duration": 1000
+    },
+    "Enter上架": {
+        "doc": "识别到上架按钮",
+        "recognition": "TemplateMatch",
+        "template": "Enter上架.png",
+        "threshold": 0.9
+    },
+    "OpenStore": {
+        "recognition": "OCR",
+        "expected": "开始营业",
+        "action": "Click"
+    }
+}

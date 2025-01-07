@@ -1,7 +1,11 @@
 {
   "Home": {
     "recognition": "TemplateMatch",
-    "template": "Home.png"
+    "template": "Home.png",
+    "action": "StopTask"
+  },
+  "Click": {
+    "action": "Click"
   },
   "Yes": {
     "doc": "确认、确定领取",
@@ -15,12 +19,14 @@
   },
   "Yes2": {
     "doc": "功能同上，文字识别时使用图像匹配",
+    "post_wait_freezes": 300,
     "recognition": "TemplateMatch",
     "template": "Yes2.png",
-    "action": "Click"
+    "action": "Click",
+    "target": true
   },
   "下架": {
-    "doc": "下架",
+    "doc": "识别到下架",
     "recognition": "OCR",
     "expected": [
       "下架"
@@ -45,8 +51,11 @@
   },
   "Esc": {
     "doc": "退出X",
-    "recognition": "FeatureMatch",
-    "template": "Esc.png",
+    "recognition": "TemplateMatch",
+    "template": [
+      "Esc.png",
+      "Esc2.png"
+    ],
     "action": "Click"
   },
   "GetHome": {
@@ -57,10 +66,24 @@
   },
   "BrocHure": {
     "doc": "快捷手册",
+    "pre_wait_freezes": 300,
     "recognition": "OCR",
     "expected": "快捷手册",
     "action": "Click",
     "post_wait_freezes": 300
+  },
+  "Completed": {
+    "doc": "识别到每日任务已完成",
+    "recognition": "OCR",
+    "expected": [
+      "已完成",
+      "活跃度已满"
+    ],
+    "next": "Home",
+    "interrupt": [
+      "Back",
+      "Esc"
+    ]
   },
   "Go": {
     "doc": "前往",
@@ -103,5 +126,13 @@
     "template": "Add.png",
     "index": 0,
     "action": "Click"
+  },
+  "StopBrocHure": {
+    "doc": "识别到没有任务，证明已经完成将停止喝咖啡任务回到主界面",
+    "next": "Home",
+    "interrupt": [
+      "Back",
+      "Esc"
+    ]
   }
 }

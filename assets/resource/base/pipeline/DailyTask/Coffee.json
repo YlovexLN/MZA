@@ -1,0 +1,50 @@
+{
+    "BrocHureCoffee": {
+        "recognition": "TemplateMatch",
+        "template": "BrocHureCoffee.png",
+        "threshold": 0.9,
+        "next": [
+            "汀曼特调",
+            "Go"
+        ],
+        "on_error": [
+            "StopBrocHure"
+        ],
+        "timeout": 1000
+    },
+    "NoBrocHureCoffee": {
+        "doc": "识别喝咖啡任务是否已完成",
+        "next": "BrocHureCoffee",
+        "on_error": [
+            "Completed",
+            "SwipeBrocHure"
+        ],
+        "timeout": 600
+    },
+    "汀曼特调": {
+        "recognition": "OCR",
+        "expected": "汀曼特调",
+        "action": "Click",
+        "target": true,
+        "next": "Buy",
+        "interrupt": [
+            "Yes",
+            "Go",
+            "BrocHure",
+            "GetHome"
+        ]
+    },
+    "浓缩咖啡": {
+        "recognition": "OCR",
+        "expected": "浓缩咖啡",
+        "action": "Click",
+        "target": true,
+        "next": "Buy",
+        "interrupt": [
+            "Yes",
+            "Go",
+            "BrocHure",
+            "GetHome"
+        ]
+    }
+}

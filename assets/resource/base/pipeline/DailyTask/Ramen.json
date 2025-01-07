@@ -1,0 +1,126 @@
+{
+    "Ramen": {
+        "doc": "吃拉面",
+        "recognition": "OCR",
+        "expected": "拉面店",
+        "action": "Click",
+        "target": true,
+        "next": [
+            "QiaoPu"
+        ],
+        "interrupt": [
+            "EnterRamen",
+            "Ramen",
+            "Map",
+            "Yes",
+            "Yes2",
+            "More",
+            "GetHome"
+        ]
+    },
+    "Map": {
+        "doc": "进入地图、导航",
+        "recognition": "OCR",
+        "expected": "导航",
+        "action": "Click"
+    },
+    "QiaoPu": {
+        "doc": "识别乔普师傅",
+        "recognition": "TemplateMatch",
+        "template": "QiaoPu.png",
+        "next": [
+            "Skip",
+            "Buy",
+            "Enter"
+        ],
+        "interrupt": [
+            "EnterRamen",
+            "Map",
+            "Yes",
+            "Yes2",
+            "More",
+            "GetHome"
+        ]
+    },
+    "EnterRamen": {
+        "doc": "进入拉面店",
+        "recognition": "TemplateMatch",
+        "template": "Joystick.png",
+        "roi": [
+            185,
+            463,
+            95,
+            97
+        ],
+        "action": "Swipe",
+        "begin": [
+            185,
+            430,
+            95,
+            97
+        ],
+        "end": [
+            185,
+            463,
+            95,
+            97
+        ],
+        "duration": 1000
+    },
+    "白碗草本汤面": {
+        "doc": "选择白碗草本汤面",
+        "recognition": "OCR",
+        "expected": "白碗草本汤面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    },
+    "白碗南瓜甜汤面": {
+        "doc": "选择白碗南瓜甜汤面",
+        "recognition": "OCR",
+        "expected": "白碗南瓜甜汤面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    },
+    "白碗炸叉烧面": {
+        "doc": "选择白碗炸叉烧面",
+        "recognition": "OCR",
+        "expected": "白碗炸叉烧面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    },
+    "白碗红椒大肉面": {
+        "doc": "选择白碗红椒大肉面",
+        "recognition": "OCR",
+        "expected": "白碗红椒大肉面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    },
+    "白碗青椒大肉面": {
+        "doc": "选择白碗青椒大肉面",
+        "recognition": "OCR",
+        "expected": "白碗青椒大肉面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    },
+    "白碗海鲜面": {
+        "doc": "选择白碗海鲜面",
+        "recognition": "OCR",
+        "expected": "白碗海鲜面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    },
+    "黑碗野菌面": {
+        "doc": "选择黑碗野菌面",
+        "recognition": "OCR",
+        "expected": "黑碗野菌面",
+        "action": "Click",
+        "target": true,
+        "next": "Buy"
+    }
+}

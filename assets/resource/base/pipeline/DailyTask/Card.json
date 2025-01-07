@@ -1,0 +1,127 @@
+{
+    "BrocHureCard": {
+        "recognition": "TemplateMatch",
+        "template": "BrocHureCard.png",
+        "threshold": 0.9,
+        "next": [
+            "Card",
+            "Go"
+        ],
+        "on_error": [
+            "StopBrocHure"
+        ],
+        "timeout": 1000
+    },
+    "NoBrocHureCard": {
+        "doc": "识别任务是否已完成",
+        "next": "BrocHureCard",
+        "on_error": [
+            "Completed",
+            "SwipeBrocHure"
+        ],
+        "timeout": 600
+    },
+    "Card": {
+        "recognition": "OCR",
+        "expected": "刮刮卡",
+        "action": "Click",
+        "target": true,
+        "next": "Card2",
+        "interrupt": [
+            "Yes",
+            "Go",
+            "BrocHure",
+            "GetHome"
+        ]
+    },
+    "Card2": {
+        "doc": "刮卡",
+        "recognition": "TemplateMatch",
+        "template": "Card.png",
+        "action": "MultiSwipe",
+        "swipes": [
+            {
+                "begin": [
+                    490,
+                    337,
+                    0,
+                    0
+                ],
+                "end": [
+                    790,
+                    337,
+                    0,
+                    0
+                ],
+                "duration": 500
+            },
+            {
+                "begin": [
+                    490,
+                    367,
+                    0,
+                    0
+                ],
+                "end": [
+                    790,
+                    367,
+                    0,
+                    0
+                ],
+                "duration": 500
+            },
+            {
+                "begin": [
+                    490,
+                    397,
+                    0,
+                    0
+                ],
+                "end": [
+                    790,
+                    397,
+                    0,
+                    0
+                ],
+                "duration": 500
+            },
+            {
+                "begin": [
+                    490,
+                    427,
+                    0,
+                    0
+                ],
+                "end": [
+                    790,
+                    427,
+                    0,
+                    0
+                ],
+                "duration": 500
+            },
+            {
+                "begin": [
+                    490,
+                    457,
+                    0,
+                    0
+                ],
+                "end": [
+                    790,
+                    457,
+                    0,
+                    0
+                ],
+                "duration": 500
+            }
+        ],
+        "next": [
+            "Home"
+        ],
+        "interrupt": [
+            "Yes",
+            "Back"
+        ]
+    }
+}

@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="LOGO" src="https://github.com/YlovexLN/MZA/blob/main/logo.png" width="256" height="256" />
+<img alt="LOGO" src="https://raw.githubusercontent.com/YlovexLN/MZA/main/logo.png" width="256" height="256" />
 
 # MZA
 

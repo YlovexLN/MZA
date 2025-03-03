@@ -1,4 +1,45 @@
 {
+    "SelectVideoType_怀旧": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "怀旧.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            745,
+            75,
+            481,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_怀旧"
+        ]
+    },
+    "SelectVideoTypeEnd_怀旧": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "怀旧End.png"
+        ],
+        "threshold": 1,
+        "roi": [
+            242,
+            645,
+            418,
+            62
+        ],
+        "next": [
+            "下架"
+        ],
+        "interrupt": [
+            "Yes2"
+        ],
+        "on_error": "Back",
+        "timeout": 300
+    },
     "SelectVideoType_冒险": {
         "doc": "选择对应的录像带类型",
         "recognition": "TemplateMatch",
@@ -24,7 +65,7 @@
         "template": [
             "冒险End.png"
         ],
-        "threshold": 0.9,
+        "threshold": 1,
         "roi": [
             242,
             645,
@@ -36,7 +77,50 @@
         ],
         "interrupt": [
             "Yes2"
+        ],
+        "on_error": "Back",
+        "timeout": 300
+    },
+    "SelectVideoType_喜剧": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "喜剧.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            745,
+            75,
+            481,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_喜剧"
         ]
+    },
+    "SelectVideoTypeEnd_喜剧": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "喜剧End.png"
+        ],
+        "threshold": 1,
+        "roi": [
+            242,
+            645,
+            418,
+            62
+        ],
+        "next": [
+            "下架"
+        ],
+        "interrupt": [
+            "Yes2"
+        ],
+        "on_error": "Back",
+        "timeout": 300
     },
     "SelectVideoType_动作": {
         "doc": "选择对应的录像带类型",
@@ -63,7 +147,7 @@
         "template": [
             "动作End.png"
         ],
-        "threshold": 0.9,
+        "threshold": 1,
         "roi": [
             242,
             645,
@@ -75,7 +159,9 @@
         ],
         "interrupt": [
             "Yes2"
-        ]
+        ],
+        "on_error": "Back",
+        "timeout": 300
     },
     "SelectVideoType_惊悚": {
         "doc": "选择对应的录像带类型",
@@ -83,7 +169,7 @@
         "template": [
             "惊悚.png"
         ],
-        "threshold": 0.9,
+        "threshold": 1,
         "roi": [
             745,
             75,
@@ -114,6 +200,108 @@
         ],
         "interrupt": [
             "Yes2"
+        ],
+        "on_error": "Back",
+        "timeout": 300
+    },
+    "SelectVideoType_怀旧喜剧动作": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "怀旧喜剧动作.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            246,
+            651,
+            415,
+            49
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "点击怀旧喜剧动作1"
+        ],
+        "interrupt": [
+            "ScreenVideo"
         ]
+    },
+    "点击怀旧喜剧动作1": {
+        "recognition": "OCR",
+        "expected": "怀旧",
+        "roi": [
+            745,
+            72,
+            482,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_怀旧"
+        ],
+        "interrupt": [
+            "Yes2"
+        ],
+        "timeout": 300
+    },
+    "点击怀旧喜剧动作2": {
+        "recognition": "OCR",
+        "expected": "喜剧",
+        "roi": [
+            745,
+            72,
+            482,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "下架"
+        ],
+        "interrupt": [
+            "Yes2",
+            "点击怀旧喜剧动作1"
+        ],
+        "timeout": 300
+    },
+    "点击怀旧喜剧动作3": {
+        "recognition": "OCR",
+        "expected": "动作",
+        "roi": [
+            745,
+            72,
+            482,
+            228
+        ],
+        "action": "Click",
+        "target": true,
+        "next": [
+            "SelectVideoTypeEnd_怀旧喜剧动作"
+        ],
+        "interrupt": [
+            "Yes2",
+            "点击怀旧喜剧动作2"
+        ],
+        "timeout": 300
+    },
+    "SelectVideoTypeEnd_怀旧喜剧动作": {
+        "doc": "选择对应的录像带类型",
+        "recognition": "TemplateMatch",
+        "template": [
+            "怀旧喜剧动作End.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            242,
+            645,
+            418,
+            62
+        ],
+        "next": [
+            "NoYes"
+        ],
+        "interrupt": [],
+        "timeout": 300
     }
 }

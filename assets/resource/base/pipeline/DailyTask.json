@@ -63,6 +63,7 @@
       "BrocHure",
       "GetHome",
       "NoBrocHureVideo",
+      "Esc",
       "StopBrocHure"
     ],
     "on_error": [

@@ -1,0 +1,113 @@
+{
+    "冒险惊悚广告": {
+        "doc": "识别左下角的录像带类型,**随时添加PNG**",
+        "pre_delay": 1000,
+        "pre_wait_freezes": 300,
+        "recognition": "TemplateMatch",
+        "template": [
+            "冒险惊悚广告.png"
+        ],
+        "threshold": 0.9,
+        "roi": [
+            497,
+            69,
+            267,
+            90
+        ],
+        "next": [
+            "冒险惊悚广告-1"
+        ],
+        "interrupt": [
+            "Add"
+        ],
+        "timeout": 1000
+    },
+    "冒险惊悚广告End": {
+        "recognition": "OCR",
+        "expected": "下架",
+        "roi": [
+            998,
+            651,
+            227,
+            55
+        ],
+        "action": "Click",
+        "target": "Back",
+        "next": "Back"
+    },
+    "冒险惊悚广告-1": {
+        "doc": "识别左下角的录像带类型并选择",
+        "recognition": "TemplateMatch",
+        "template": "波特山.png",
+        "action": "Click",
+        "target": true,
+        "next": "冒险惊悚广告-2"
+    },
+    "冒险惊悚广告-2": {
+        "doc": "识别左下角的录像带类型并选择",
+        "recognition": "OCR",
+        "expected": "上架",
+        "roi": [
+            998,
+            651,
+            227,
+            55
+        ],
+        "action": "Click",
+        "target": true,
+        "next": "冒险惊悚广告-3",
+        "interrupt": [
+            "SwipesScreenVideo2"
+        ]
+    },
+    "冒险惊悚广告-3": {
+        "doc": "识别左下角的录像带类型并选择",
+        "recognition": "TemplateMatch",
+        "template": "我们需要你.png",
+        "action": "Click",
+        "target": true,
+        "next": "冒险惊悚广告-4",
+        "interrupt": [
+            "SwipesScreenVideo2"
+        ]
+    },
+    "冒险惊悚广告-4": {
+        "doc": "识别左下角的录像带类型并选择",
+        "recognition": "OCR",
+        "expected": "上架",
+        "roi": [
+            998,
+            651,
+            227,
+            55
+        ],
+        "action": "Click",
+        "target": true,
+        "next": "冒险惊悚广告-5",
+        "interrupt": [
+            "SwipesScreenVideo2"
+        ]
+    },
+    "冒险惊悚广告-5": {
+        "doc": "识别左下角的录像带类型并选择",
+        "recognition": "TemplateMatch",
+        "template": "7710和他的猫.png",
+        "action": "Click",
+        "target": true,
+        "next": "冒险惊悚广告-6"
+    },
+    "冒险惊悚广告-6": {
+        "doc": "识别左下角的录像带类型并选择",
+        "recognition": "OCR",
+        "expected": "上架",
+        "roi": [
+            998,
+            651,
+            227,
+            55
+        ],
+        "action": "Click",
+        "target": true,
+        "next": "冒险惊悚广告End"
+    }
+}

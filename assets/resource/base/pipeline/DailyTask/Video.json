@@ -28,9 +28,11 @@
             "VideoEnd"
         ],
         "interrupt": [
-            "BrocHureVideoEnter",
+            "AddVideo",
+            "Yes",
             "Go",
-            "BrocHure"
+            "BrocHure",
+            "GetHome"
         ]
     },
     "AddVideo": {
@@ -40,9 +42,6 @@
         ],
         "interrupt": [
             "BrocHureVideoEnter",
-            "Add",
-            "Yes",
-            "Go",
             "BrocHure",
             "GetHome"
         ]
@@ -53,8 +52,7 @@
             "PutVideoEnd"
         ],
         "interrupt": [
-            "PutVideo1",
-            "PutVideo2",
+            "PutVideo",
             "AddClerk",
             "Add",
             "Esc",
@@ -74,6 +72,7 @@
     },
     "VideoEnd": {
         "doc": "优化流程,上架录像带还可以继续点击上架筛选进行下一本书的选择",
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "threshold": 0.9,
         "template": "BrocHureVideoEnter.png",
@@ -82,30 +81,30 @@
         ],
         "interrupt": [
             "Yes",
-            "OpenStore",
-            "Back"
+            "Back",
+            "OpenStore"
         ]
     },
-    "PutVideo1": {
+    "PutVideo": {
         "doc": "识别左下角的录像带类型,**随时添加PNG**",
-        "post_wait_freezes": 300,
+        "pre_delay": 1000,
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": [
-            "PutVideoEnd1.png"
+            "怀旧喜剧动作.png"
         ],
-        "threshold": 1,
+        "threshold": 0.9,
         "roi": [
-            244,
-            645,
-            415,
-            60
+            248,
+            655,
+            405,
+            39
         ],
         "next": [
             "PutVideoEnd1"
         ],
         "interrupt": [
-            "SelectVideoType_冒险",
-            "ScreenVideo",
+            "冒险惊悚广告",
             "AddClerk",
             "Add",
             "Esc",
@@ -115,7 +114,8 @@
     },
     "PutVideo2": {
         "doc": "识别左下角的录像带类型,**随时添加PNG**",
-        "post_wait_freezes": 300,
+        "pre_delay": 1000,
+        "pre_wait_freezes": 300,
         "recognition": "TemplateMatch",
         "template": [
             "动作.png",
@@ -141,6 +141,7 @@
         ]
     },
     "PutVideoEnd": {
+        "post_wait_freezes": 600,
         "recognition": "TemplateMatch",
         "template": [
             "BrocHureVideoEnter.png"
@@ -154,37 +155,37 @@
         ]
     },
     "PutVideoEnd1": {
+        "pre_delay": 1000,
+        "pre_wait_freezes": 600,
         "recognition": "TemplateMatch",
         "template": [
-            "PutVideoEnd5.png"
+            "冒险惊悚广告End.png"
         ],
         "threshold": 0.9,
         "roi": [
-            242,
-            652,
-            427,
-            49
+            248,
+            655,
+            405,
+            39
         ],
-        "next": [
-            "Back"
-        ],
+        "next": [],
         "interrupt": []
     },
     "PutVideoEnd2": {
+        "pre_delay": 1000,
+        "pre_wait_freezes": 600,
         "recognition": "TemplateMatch",
         "template": [
-            "PutVideoEnd1.png"
+            "PutVideoEnd7.png"
         ],
         "threshold": 0.8,
         "roi": [
-            242,
-            652,
-            427,
-            49
+            470,
+            62,
+            312,
+            115
         ],
-        "next": [
-            "Back"
-        ],
+        "next": [],
         "interrupt": []
     },
     "ScreenVideo": {
@@ -232,5 +233,31 @@
         "recognition": "OCR",
         "expected": "开始营业",
         "action": "Click"
+    },
+    "NoYes": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "NoYes.png"
+        ],
+        "next": [
+            "Back"
+        ]
+    },
+    "SwipesScreenVideo2": {
+        "doc": "滑动录像带便于选择",
+        "action": "Swipe",
+        "begin": [
+            680,
+            335,
+            0,
+            0
+        ],
+        "end": [
+            680,
+            90,
+            0,
+            0
+        ],
+        "duration": 1000
     }
 }

@@ -7,6 +7,9 @@
   "Click": {
     "action": "Click"
   },
+  "StopTask": {
+    "action": "StopTask"
+  },
   "Yes": {
     "doc": "确认、确定领取",
     "recognition": "OCR",
@@ -27,11 +30,13 @@
   },
   "下架": {
     "doc": "识别到下架",
+    "post_delay": 1000,
+    "post_wait_freezes": 300,
     "recognition": "OCR",
     "expected": [
       "下架"
     ],
-    "next": "Back"
+    "next": "StopTask"
   },
   "No": {
     "pre_delay": 200,
@@ -44,6 +49,8 @@
     "target": true
   },
   "Back": {
+    "post_delay": 1000,
+    "post_wait_freezes": 300,
     "recognition": "TemplateMatch",
     "template": "Back.png",
     "action": "Click",
@@ -121,7 +128,6 @@
   },
   "Add": {
     "doc": "添加+、录像店",
-    "post_wait_freezes": 300,
     "recognition": "TemplateMatch",
     "template": "Add.png",
     "index": 0,
